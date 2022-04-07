@@ -10,10 +10,10 @@ class PostController extends Controller
 
     public function index()
     {
-        $post = Post::where('is_published', 1)->get();
-        foreach ($post as $posts) {
-            echo $posts->title . '</br>';
-        }
+        $posts = Post::all();
+
+        return view('posts', compact('posts'));
+
 
     }
 
@@ -69,6 +69,23 @@ class PostController extends Controller
         $post = Post::withTrashed()->find(2);
         $post->restore();
         dd('deleted');
+    }
+
+    public function firstOrCreate()
+    {
+
+        $post = Post::firstorcreate([
+            'title' => 'some interesting content',
+        ], [
+            'title' => 'some interesting content',
+            'content' => 'new content',
+            'image' => 'image4.jpg',
+            'likes' => 120,
+            'is_published' => 1,
+        ]);
+        dump ($post->content);
+        dd('finished');
+
     }
 
 }
