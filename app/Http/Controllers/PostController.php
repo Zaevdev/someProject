@@ -50,7 +50,8 @@ class PostController extends Controller
         dd('created');
     }
 
-    public function update(){
+    public function update()
+    {
         $post = Post::find(6);
 
         $post->update([
@@ -61,6 +62,13 @@ class PostController extends Controller
             'is_published' => 0,
         ]);
         dd('updated');
+    }
+
+    public function delete()
+    {
+        $post = Post::withTrashed()->find(2);
+        $post->restore();
+        dd('deleted');
     }
 
 }
