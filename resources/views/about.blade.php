@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
 
-    <div>about1</div>
+    <div>about</div>
 
 @endsection
 
