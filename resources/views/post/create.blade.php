@@ -17,13 +17,19 @@
             </div>
             <div class="dropdown mb-3">
                 <select class="form-select" name="category_id" id="category_id">
-                    <option disabled>Choose category</option>
+                    <option selected disabled>Choose category</option>
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}" name="category_id"
                                 id="category_id">{{$category->title}}</option>
                     @endforeach
                 </select>
             </div>
+            <select class="form-select" multiple id="tags" name ="tags[]">
+                <option selected disabled>Choose tags</option>
+                @foreach ($tags as $tag)
+                    <option value="{{$tag->id}}">{{$tag->title}}</option>
+                @endforeach
+            </select>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
