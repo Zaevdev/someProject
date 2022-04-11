@@ -17,7 +17,7 @@
                 <input type="text" name="image" class="form-control" id="image" value="{{$post->image}}">
             </div>
             <div class="dropdown mb-3">
-                <select class="form-select" name="category_id" id="category_id">
+                <select class="form-select mb-3" name="category_id" id="category_id">
                     <option disabled>Choose category</option>
 
                     @foreach($categories as $category)
