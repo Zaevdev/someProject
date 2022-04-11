@@ -21,8 +21,16 @@
                     <option disabled>Choose category</option>
 
                     @foreach($categories as $category)
-                        <option value="{{ $category->id }}" {{ ( $category->id == $post->category_id) ? 'selected' : '' }} name="category_id"
+                        <option value="{{ $category->id }}"
+                                {{ ( $category->id == $post->category_id) ? 'selected' : '' }} name="category_id"
                                 id="category_id">{{$category->title}}</option>
+                    @endforeach
+                </select>
+                <select class="form-select" multiple id="tags" name="tags[]">
+                    <option disabled>Choose tags</option>
+                    @foreach ($tags as $tag)
+                        <option
+                            {{ in_array($tag->id, $post->tags->pluck('id')->toArray()) ? 'selected' : '' }} value="{{$tag->id}}">{{$tag->title}}</option>
                     @endforeach
                 </select>
             </div>
