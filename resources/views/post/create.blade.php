@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layouts.main')
 @section('content')
     <div>
         <form action="{{route('post.store')}}" method="post">
